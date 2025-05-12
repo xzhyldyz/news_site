@@ -103,12 +103,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_DIR = BASE_DIR/'static/'
+STATIC_URL = 'static/'      # Путь для статики
+STATIC_DIR = BASE_DIR/'static/'    # Директория статики
 STATICFILES_DIRS = [STATIC_DIR]
 	
-MEDIA_URL ='/media/'
-MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL ='/media/'         # Путь для медиа файлов
+MEDIA_ROOT = BASE_DIR/'media'   # Местоположение для медиа файлов
 
 
 # Default primary key field type
