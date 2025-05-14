@@ -64,7 +64,7 @@
 
 								<li class="drop"><a class="home" href="{% url "home" %}">Главная</a></li>
                                 {% for cat in category %}
-								<li><a class="world" href="#">{{cat.name}}</a></li>
+								<li><a class="world" href="{% url 'sport_category' %}">{{cat.name}}</a></li>
                                 {% endfor %}
 								<li><a class="world" href="#">Контакты</a></li>
 							</ul>
