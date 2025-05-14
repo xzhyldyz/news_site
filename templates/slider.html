@@ -1,0 +1,36 @@
+<!-- big-slider-section
+			================================================== -->
+		<section class="big-slider">
+			<div class="container">
+				<div class="image-slider">
+					<ul class="big-bxslider">
+                        {% for slider in sliders %}
+						<li>
+							<div class="news-post image-post2">
+								<div class="post-gallery">
+                                    {% if slider.image %}
+									<img src="{{slider.image.url}}" alt="">
+                                    {% else %}
+									<img src="https://st2.depositphotos.com/3223379/5688/i/450/depositphotos_56880225-stock-photo-words-news.jpg" alt="">
+                                    {% endif %}
+									<div class="hover-box">
+										<div class="inner-hover">
+											<a class="category-post food" href="https://nunforest.com/hotmagazine-demo/default/food.html">{{slider.category}}</a>
+											<h2><a href="single-post.html">{{slider.title}}</a></h2>
+											<ul class="post-tags">
+												<li><i class="fa fa-clock-o"></i>{{slider.published_date}}</li>
+												<li><i class="fa fa-user"></i>by <a href="home5.html#">{{slider.author}}</a></li>
+												<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+												<li><i class="fa fa-eye"></i>872</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+                        {% endfor %}
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- End big-slider-section -->
