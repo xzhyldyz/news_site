@@ -63,8 +63,8 @@
 							<ul class="nav navbar-nav navbar-left">
 
 								<li class="drop"><a class="home" href="{% url "home" %}">Главная</a></li>
-                                {% for cat in category %}
-								<li><a class="fashion" href="#">{{cat.name}}</a></li>
+                                {% for cat in categories %}
+								<li><a class="fashion" href="{% url 'news_category' slug=cat.slug %}">{{cat.name}}</a></li>
                                 {% endfor %}
 								<li><a class="world" href="{% url "contactPages" %}">Контакты</a></li>
 							</ul>
