@@ -12,61 +12,22 @@
 
 					<div class="owl-wrapper">
 						<div class="owl-carousel" data-num="4">
-
+                            {% for a in articles %}
 							<div class="item list-post">
-								<img src="upload/news-posts/listw5.jpg" alt="">
+								{% if a.image %}
+								<img src="{{a.image.url}}" alt="{{a.title}}">
+								{% else %}
+								<img src="https://sh.stupinoinstrumentykashira.ru/images/no_photo.jpg" alt="">
+								{% endif %}
 								<div class="post-content">
-									<a href="https://nunforest.com/hotmagazine-demo/default/food.html">Food &amp; Health</a>
-									<h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. </a></h2>
+									<a href="https://nunforest.com/hotmagazine-demo/default/food.html">{{a.category}}</a>
+									<h2><a href="{{a.get_absolute_url}}">{{ a.title }} </a></h2>
 									<ul class="post-tags">
-										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+										<li><i class="fa fa-clock-o"></i>{{a.published_date}}</li>
 									</ul>
 								</div>
 							</div>
-
-							<div class="item list-post">
-								<img src="upload/news-posts/listw4.jpg" alt="">
-								<div class="post-content">
-									<a href="https://nunforest.com/hotmagazine-demo/default/business.html">business</a>
-									<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-									<ul class="post-tags">
-										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="item list-post">
-								<img src="upload/news-posts/listw3.jpg" alt="">
-								<div class="post-content">
-									<a href="https://nunforest.com/hotmagazine-demo/default/travel.html">travel</a>
-									<h2><a href="single-post.html">Aliquam porttitor mauris sit amet orci. </a></h2>
-									<ul class="post-tags">
-										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="item list-post">
-								<img src="upload/news-posts/listw2.jpg" alt="">
-								<div class="post-content">
-									<a href="https://nunforest.com/hotmagazine-demo/default/travel.html">travel</a>
-									<h2><a href="single-post.html">Morbi in sem quis dui placerat ornare. </a></h2>
-									<ul class="post-tags">
-										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="item list-post">
-								<img src="upload/news-posts/listw1.jpg" alt="">
-								<div class="post-content">
-									<a href="https://nunforest.com/hotmagazine-demo/default/food.html">Food &amp; Health</a>
-									<h2><a href="single-post.html">Morbi in sem quis dui placerat ornare. </a></h2>
-									<ul class="post-tags">
-										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									</ul>
-								</div>
-							</div>
+							{% endfor %}
 
 						</div>
 					</div>
@@ -117,7 +78,7 @@
 
 								<div class="other-posts-box">
 									<div class="title-section">
-										<h1><span>You Might Also Like</span></h1>
+										<h1><span>Вам также может понравиться</span></h1>
 									</div>
 
 									<div class="row">
@@ -250,7 +211,7 @@
 										<h2><a href="single-post.html">Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</a></h2>
 										<ul class="post-tags">
 											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="home5.html#">John Doe</a></li>
+											<li><i class="fa fa-user"></i>Автор <a href="home5.html#">John Doe</a></li>
 											<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 											<li><i class="fa fa-eye"></i>872</li>
 										</ul>
@@ -273,7 +234,7 @@
 									</div>
 									<div class="post-content">
 										<p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. <br> Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor.</p>
-										<a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+										<a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Читать дальше</a>
 										<div class="share-box">
 											<a class="likes" href="home5.html#"><i class="fa fa-heart-o"></i> <span>0</span></a>
 											<ul class="share-list-post">
@@ -290,7 +251,7 @@
 
 								<div class="other-posts-box">
 									<div class="title-section">
-										<h1><span>You Might Also Like</span></h1>
+										<h1><span>Вам также может понравиться</span></h1>
 									</div>
 
 									<div class="row">
@@ -347,7 +308,7 @@
 										<h2><a href="single-post.html">Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis. </a></h2>
 										<ul class="post-tags">
 											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="home5.html#">John Doe</a></li>
+											<li><i class="fa fa-user"></i>Автор:<a href="home5.html#">John Doe</a></li>
 											<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 											<li><i class="fa fa-eye"></i>872</li>
 										</ul>
@@ -357,11 +318,11 @@
 										<p class="highlight">Lorem ipsum dolor sit amet, cotur acing elit. Ut euis eget dolor sit amet congue. Ut vira codo matis. Sed lacia luctus magna ut sodales. Proin massa quam, tincidunt id sem at, blandit viverra justo. </p>
 
 										<p>Nullam fringilla nunc in nulla rutrum, eu mollis felis lobortis. In hac habitasse platea dictumst. Nullam sed diam et lectus eleifend commodo. Cras fringilla eros id ipsum suscipit tincidunt. Lorem ipsum dolor sit amet, cotur acing elit. Ut euis eget dolor sit amet congue. Ut vira codo matis. Sed lacia luctus magna ut sodales. </p>
-										<a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+										<a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Читать далее</a>
 										<div class="share-box">
 											<a class="likes" href="home5.html#"><i class="fa fa-heart-o"></i> <span>0</span></a>
 											<ul class="share-list-post">
-												<li><i class="fa fa-share-alt"></i><span>Share Post</span></li>
+												<li><i class="fa fa-share-alt"></i><span>Поделиться постом</span></li>
 												<li><a class="facebook" href="home5.html#"><i class="fa fa-facebook"></i></a></li>
 												<li><a class="google" href="home5.html#"><i class="fa fa-google-plus"></i></a></li>
 												<li><a class="twitter" href="home5.html#"><i class="fa fa-twitter"></i></a></li>
@@ -379,7 +340,7 @@
 										<h2><a href="single-post.html">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</a></h2>
 										<ul class="post-tags">
 											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="home5.html#">John Doe</a></li>
+											<li><i class="fa fa-user"></i>Автор: <a href="home5.html#">John Doe</a></li>
 											<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 											<li><i class="fa fa-eye"></i>872</li>
 										</ul>
@@ -395,7 +356,7 @@
 										<div class="share-box">
 											<a class="likes" href="home5.html#"><i class="fa fa-heart-o"></i> <span>0</span></a>
 											<ul class="share-list-post">
-												<li><i class="fa fa-share-alt"></i><span>Share Post</span></li>
+												<li><i class="fa fa-share-alt"></i><span>Поделиться постом</span></li>
 												<li><a class="facebook" href="home5.html#"><i class="fa fa-facebook"></i></a></li>
 												<li><a class="google" href="home5.html#"><i class="fa fa-google-plus"></i></a></li>
 												<li><a class="twitter" href="home5.html#"><i class="fa fa-twitter"></i></a></li>
@@ -417,9 +378,9 @@
 									<li><a href="home5.html#">3</a></li>
 									<li><span>...</span></li>
 									<li><a href="home5.html#">9</a></li>
-									<li><a href="home5.html#">Next</a></li>
+									<li><a href="home5.html#">Следующее</a></li>
 								</ul>
-								<p>Page 1 of 9</p>
+								<p>Стр.1 до 9</p>
 							</div>
 							<!-- End Pagination box -->
 
@@ -442,7 +403,7 @@
 
 							<div class="widget social-widget">
 								<div class="title-section">
-									<h1><span>Stay Connected</span></h1>
+									<h1><span>Оставайтесь на связи</span></h1>
 								</div>
 								<ul class="social-share">
 									<li>
@@ -458,19 +419,19 @@
 									<li>
 										<a href="home5.html#" class="twitter"><i class="fa fa-twitter"></i></a>
 										<span class="number">43,501</span>
-										<span>Followers</span>
+										<span>Подписчики"</span>
 									</li>
 									<li>
 										<a href="home5.html#" class="google"><i class="fa fa-google-plus"></i></a>
 										<span class="number">35,003</span>
-										<span>Followers</span>
+										<span>Подписчики"</span>
 									</li>
 								</ul>
 							</div>
 
 							<div class="widget features-slide-widget">
 								<div class="title-section">
-									<h1><span>Featured Posts</span></h1>
+									<h1><span>Избранные посты</span></h1>
 								</div>
 								<div class="image-post-slider">
 									<ul class="bxslider">
@@ -559,15 +520,15 @@
 
 							<div class="advertisement">
 								<div class="desktop-advert">
-									<span>Advertisement</span>
+									<span>Реклама</span>
 									<img src="upload/addsense/250x250.jpg" alt="">
 								</div>
 								<div class="tablet-advert">
-									<span>Advertisement</span>
+									<span>Реклама</span>
 									<img src="upload/addsense/200x200.jpg" alt="">
 								</div>
 								<div class="mobile-advert">
-									<span>Advertisement</span>
+									<span>Реклама</span>
 									<img src="upload/addsense/300x250.jpg" alt="">
 								</div>
 							</div>
@@ -576,10 +537,10 @@
 
 								<ul class="nav nav-tabs" id="myTab">
 									<li class="active">
-										<a href="home5.html#option1" data-toggle="tab">Popular</a>
+										<a href="home5.html#option1" data-toggle="tab">Популярные</a>
 									</li>
 									<li>
-										<a href="home5.html#option2" data-toggle="tab">Recent</a>
+										<a href="home5.html#option2" data-toggle="tab">Недавние</a>
 									</li>
 								</ul>
 
@@ -695,7 +656,7 @@
 
 							<div class="widget post-widget">
 								<div class="title-section">
-									<h1><span>Featured Video</span></h1>
+									<h1><span>Избранные видео</span></h1>
 								</div>
 								<div class="news-post video-post">
 									<img alt="" src="upload/news-posts/video-sidebar.jpg">
