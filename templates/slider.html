@@ -15,12 +15,12 @@
                                     {% endif %}
 									<div class="hover-box">
 										<div class="inner-hover">
-											<a class="category-post food" href="https://nunforest.com/hotmagazine-demo/default/food.html">{{slider.category}}</a>
-											<h2><a href="single-post.html">{{slider.title}}</a></h2>
+											<a class="category-post food" href="{{ slider.get_absolute_url }}">{{slider.category}}</a>
+											<h2><a href="{{ slider.get_absolute_url }}">{{slider.title}}</a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i>{{slider.published_date}}</li>
 												<li><i class="fa fa-user"></i>by <a href="home5.html#">{{slider.author}}</a></li>
-												<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 												<li><i class="fa fa-eye"></i>872</li>
 											</ul>
 										</div>

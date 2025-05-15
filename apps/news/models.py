@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+# from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -21,7 +22,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
-    content = models.TextField(verbose_name="Текст")
+    content = models.TextField("Текст")
     published_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, 
@@ -41,7 +42,7 @@ class Article(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse("article_detail", kwargs={"slug": self.slug})
+        return reverse("news_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = "Новости - cтатья"

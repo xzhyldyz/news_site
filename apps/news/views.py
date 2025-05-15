@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models import Q
 from .models import Article, Category
-
+ 
 def homepage(request):
     articles = Article.objects.all()
     sliders = Article.objects.all()[:3]
@@ -12,9 +13,18 @@ def homepage(request):
         }
     return render(request, 'index.html', context)   # Передача данных из админки в шаблон
 
-def sport_category(request):
-    sport_category = Category.objects.get(name = 'спорт')
-    articles = Article.objects.filter(category=sport_category)
-    
-    return render(request, 'pages/news-category-sport.html', {'articles': articles})
+
+def news_detail(request, slug):
+    category = Category.objects.all()
+    news = get_object_or_404(Article, slug=slug)
+    context = {
+        'category': category,
+        'news': news,
+    }
+    return render(request, 'details/news-detail.html', context)
+
+
+def contact(request):
+    category = Category.objects.all()
+    return render(request, 'pages/contact.html', {'category': category,})
 

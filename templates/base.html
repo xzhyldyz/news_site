@@ -23,15 +23,19 @@
 
 </head>
 <body>
-    
-    {% block content %}
 
+    <!-- Container -->
+    <div id="container">
+	    {% include "header.html" %}
 
-    {% endblock content %}
+        {% block content %}
 
+        {% endblock content %}
 
+	    {% include "footer.html" %}
 
-
+    </div>
+	
 	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery.migrate.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery.bxslider.min.js' %}"></script>
