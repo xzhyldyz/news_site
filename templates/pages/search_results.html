@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2> Результат поиска по запросу: "{{query}}"</h2>
+
+{% if news %}
+<h3> Новости </h3>
+<ul>
+    {% for news in news %}
+    <li>
+        <a href="{{ news.get_absolute_url }}"> {{ news.title }}</a>
+        <img src="{{ news.image.url }}" width="300px">
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Новости не найдены</p>
+{% endif %}
+
+{% if categories %}
+<h3> Категории </h3>
+<ul>
+    {% for category in categories %}
+    <li>
+        <a href="{{ category.get_absolute_url }}"> {{ category.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p> Категории не найдены</p>
+{% endif %}
+
+
+
+
+
+
+
+{% endblock content %}

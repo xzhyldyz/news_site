@@ -6,10 +6,10 @@
 
 	<div class="container">
 		<div class="ticker-news-box">
-			<span class="breaking-news">breaking news</span>
-			<span class="new-news">New</span>
+			<span class="breaking-news">Экстренные новости</span>
+			<span class="new-news">Новый</span>
 			<ul id="js-news">
-				<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="single-post6.html#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a> Donec odio. Quisque volutpat mattis eros... </li>
+				<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="{% url "home" %}">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a> Donec odio. Quisque volutpat mattis eros... </li>
 				<li class="news-item"><span class="time-news">12:40 pm</span>  <a href="single-post6.html#">Dëshmitarja Abrashi: E kam parë Oliverin në turmë,</a> ndërsa neve na shpëtoi “çika Mille” </li>
 				<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="single-post6.html#">Franca do të bashkëpunojë me Kosovën në fushën e shëndetësisë. </a></li>
 				<li class="news-item"><span class="time-news">01:00 am</span>  <a href="single-post6.html#">DioGuardi, kështu e mbrojti Kosovën në Washington, </a> para serbit Vejvoda </li>
@@ -48,7 +48,7 @@
 							<h1>{{ news.title }}</h1>
 							<ul class="post-tags">
 								<li><i class="fa fa-clock-o"></i>{{ news.published_date }}</li>
-								<li><i class="fa fa-user"></i>by <a href="single-post6.html#">{{news.author}}</a></li>
+								<li><i class="fa fa-user"></i>Автор: <a href="single-post6.html#">{{news.author}}</a></li>
 								<li><a href="single-post6.html#"><i class="fa fa-comments-o"></i><span>0</span></a></li>
 								<li><i class="fa fa-eye"></i>872</li>
 							</ul>
@@ -96,17 +96,17 @@
 
 						<div class="post-tags-box">
 							<ul class="tags-box">
-								<li><i class="fa fa-tags"></i><span>Tags:</span></li>
-								<li><a href="single-post6.html#">News</a></li>
-								<li><a href="single-post6.html#">Fashion</a></li>
-								<li><a href="single-post6.html#">Politics</a></li>
-								<li><a href="single-post6.html#">Sport</a></li>
+								<li><i class="fa fa-tags"></i><span>Теги:</span></li>
+								<li><a href="{% url 'home'%}">Новости</a></li>
+								<li><a href="single-post6.html#">Мода</a></li>
+								<li><a href="single-post6.html#">политика</a></li>
+								<li><a href="single-post6.html#">Спорт</a></li>
 							</ul>
 						</div>
 
 						<div class="share-post-box">
 							<ul class="share-box">
-								<li><i class="fa fa-share-alt"></i><span>Share Post</span></li>
+								<li><i class="fa fa-share-alt"></i><span>Поделиться постом</span></li>
 								<li><a class="facebook" href="single-post6.html#"><i class="fa fa-facebook"></i>Share on Facebook</a></li>
 								<li><a class="twitter" href="single-post6.html#"><i class="fa fa-twitter"></i>Share on Twitter</a></li>
 								<li><a class="google" href="single-post6.html#"><i class="fa fa-google-plus"></i><span></span></a></li>
@@ -140,7 +140,7 @@
 						<div class="about-more-autor">
 							<ul class="nav nav-tabs">
 								<li class="active">
-									<a href="single-post6.html#about-autor" data-toggle="tab">About The Autor</a>
+									<a href="single-post6.html#about-autor" data-toggle="tab">О Авторе:</a>
 								</li>
 								<li>
 									<a href="single-post6.html#more-autor" data-toggle="tab">More From Autor</a>
