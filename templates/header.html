@@ -11,8 +11,9 @@
 						<div class="row">
 							<div class="col-md-9">
 								<ul class="top-line-list">
+									{% if weather %}
 									<li>
-										<span class="city-weather">London, United Kingdom</span>
+										<span class="city-weather">{{ weather.city }}, {{ weather.description }}</span>
 											<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="24px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
 											<path fill="#777777" d="M208,64c8.833,0,16-7.167,16-16V16c0-8.833-7.167-16-16-16s-16,7.167-16,16v32
 												C192,56.833,199.167,64,208,64z M332.438,106.167l22.625-22.625c6.249-6.25,6.249-16.375,0-22.625
@@ -33,9 +34,12 @@
 												c23.291,12.375,42.416,31.542,54.457,55.063C378.938,290.188,389.209,288,400,288c44.188,0,80,35.812,80,80S444.188,448,400,448z"
 											/>
 										</svg>
-										<span class="cel-temperature">+7</span>
+										<span class="cel-temperature">{{ weather.temp }}°C</span>
 									</li>
-									<li><span class="time-now">Thursday 8 January 2015 / 21:20</span></li>
+									{% endif %}
+									{% if weather %}
+									<li><span class="time-now">{{ current_time|date:"d.m.Y H:i" }}</span></li>
+									{% endif %}
 									<li><a href="home5.html#">Log In</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li><a href="home5.html#">Purchase Theme</a></li>
