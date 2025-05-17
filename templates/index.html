@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
 		{% include "slider.html" %}
 
 		<!-- block-wrapper-section
@@ -46,26 +45,29 @@
 							<div class="grid-box">
 								<div class="news-post very-large-post">
 									<div class="title-post">
-										<a class="category-post world" href="https://nunforest.com/hotmagazine-demo/default/world.html">Business</a>
-										<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam.<br> Sed arcu. Cras consequat.</a></h2>
+										<a class="category-post world" href="https://nunforest.com/hotmagazine-demo/default/world.html">Бизнес</a>
+										<h2><a href="single-post.html">{{ a.title }}</a></h2>
 										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="home5.html#">John Doe</a></li>
+											<li><i class="fa fa-clock-o"></i>{{ a.published_date }}</li>
+											<li><i class="fa fa-user"></i>Автор <a href="home5.html#">{{ a.author }}</a></li>
 											<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 											<li><i class="fa fa-eye"></i>872</li>
 										</ul>
 									</div>
 									<div class="post-gallery">
-										<img src="upload/news-posts/large5.jpg" alt="">
+										{% if a.image %}
+										<img src="{{a.image.url}}" alt="">
+										{% else %}
+										<img src="https://st2.depositphotos.com/3223379/5688/i/450/depositphotos_56880225-stock-photo-words-news.jpg" alt="">
+                                        {% endif %}
 									</div>
 									<div class="post-content">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-										<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-										<a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+										<p>{{ a.content }}</p>
+										<a href="{{a.get_absolute_url}}" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Читать дальше...</a>
 										<div class="share-box">
 											<a class="likes" href="home5.html#"><i class="fa fa-heart-o"></i> <span>0</span></a>
 											<ul class="share-list-post">
-												<li><i class="fa fa-share-alt"></i><span>Share Post</span></li>
+												<li><i class="fa fa-share-alt"></i><span>Поделиться</span></li>
 												<li><a class="facebook" href="home5.html#"><i class="fa fa-facebook"></i></a></li>
 												<li><a class="google" href="home5.html#"><i class="fa fa-google-plus"></i></a></li>
 												<li><a class="twitter" href="home5.html#"><i class="fa fa-twitter"></i></a></li>
@@ -86,40 +88,16 @@
 										<div class="col-md-4">
 											<div class="news-post standard-post2">
 												<div class="post-gallery">
-													<img src="upload/news-posts/art1.jpg" alt="">
+													{% if a.image %}
+													<img src="{{ a.image.url}}" alt="">
+													{% else %}
+													<img src="https://st2.depositphotos.com/3223379/5688/i/450/depositphotos_56880225-stock-photo-words-news.jpg" alt="">
+                                                    {% endif %}
 												</div>
 												<div class="post-title">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+													<h2><a href="{{a.get_absolute_url}}">{{a.title}} </a></h2>
 													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</div>
-										</div>	
-
-										<div class="col-md-4">
-											<div class="news-post standard-post2">
-												<div class="post-gallery">
-													<img src="upload/news-posts/art2.jpg" alt="">
-												</div>
-												<div class="post-title">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</div>
-										</div>	
-
-										<div class="col-md-4">
-											<div class="news-post standard-post2">
-												<div class="post-gallery">
-													<img src="upload/news-posts/art3.jpg" alt="">
-												</div>
-												<div class="post-title">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+														<li><i class="fa fa-clock-o"></i>{{a.published_date}}</li>
 													</ul>
 												</div>
 											</div>
@@ -129,67 +107,22 @@
 
 								</div>
 
-								<div class="news-post very-large-post">
-									<div class="title-post">
-										<a class="category-post food" href="https://nunforest.com/hotmagazine-demo/default/food.html">Food &amp; Health</a>
-										<h2><a href="single-post.html">Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus.</a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="home5.html#">John Doe</a></li>
-											<li><a href="home5.html#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											<li><i class="fa fa-eye"></i>872</li>
-										</ul>
-									</div>
-									<div class="post-gallery">
-										<div class="group-image">
-											<a class="zoom big-size" href="upload/news-posts/mas1.jpg"><img src="upload/news-posts/mas1.jpg" alt=""></a>
-											<a class="zoom" href="upload/news-posts/mas2.jpg"><img src="upload/news-posts/mas2.jpg" alt=""></a>
-											<a class="zoom" href="upload/news-posts/mas3.jpg"><img src="upload/news-posts/mas3.jpg" alt=""></a>
-											<a class="zoom big-size" href="upload/news-posts/mas4.jpg"><img src="upload/news-posts/mas4.jpg" alt=""></a>
-										</div>
-									</div>
-									<div class="post-content">
-										<p>Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-										<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-										<blockquote><p>Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis.</p></blockquote>
-										<div class="article-inpost">
-											<img src="upload/news-posts/z1.jpg" alt="">
-											<div class="right-content">
-												<p class="highlight">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-												<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.<br> Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-											</div>
-										</div>
-										<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-										<a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
-										<div class="share-box">
-											<a class="likes" href="home5.html#"><i class="fa fa-heart-o"></i> <span>0</span></a>
-											<ul class="share-list-post">
-												<li><i class="fa fa-share-alt"></i><span>Share Post</span></li>
-												<li><a class="facebook" href="home5.html#"><i class="fa fa-facebook"></i></a></li>
-												<li><a class="google" href="home5.html#"><i class="fa fa-google-plus"></i></a></li>
-												<li><a class="twitter" href="home5.html#"><i class="fa fa-twitter"></i></a></li>
-												<li><a class="pinterest" href="home5.html#"><i class="fa fa-pinterest"></i></a></li>
-												<li><a class="rss" href="home5.html#"><i class="fa fa-rss"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-
 							</div>
+							
 							<!-- End grid box -->
 
 							<!-- google addsense -->
 							<div class="advertisement">
 								<div class="desktop-advert">
-									<span>Advertisement</span>
+									<span>Реклама</span>
 									<img src="upload/addsense/600x80.jpg" alt="">
 								</div>
 								<div class="tablet-advert">
-									<span>Advertisement</span>
+									<span>Реклама</span>
 									<img src="upload/addsense/468x60-white.jpg" alt="">
 								</div>
 								<div class="mobile-advert">
-									<span>Advertisement</span>
+									<span>Реклама</span>
 									<img src="upload/addsense/300x250.jpg" alt="">
 								</div>
 							</div>

@@ -51,6 +51,22 @@
 /*-------------------------------------------------------*/
 /* 1. Isotope filtering
 /*-------------------------------------------------------*/
+
+.language-select {
+  background-color: #000000;
+  color: #7b7979;
+  padding: 5px 10px;
+  font-size: 2px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.language-select:hover {
+  border-color: #007bff;
+  background-color: #000000;
+}
+
+
 .isotope-item {
   z-index: 2;
 }

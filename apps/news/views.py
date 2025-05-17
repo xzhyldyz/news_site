@@ -70,3 +70,4 @@ def contact(request):
     categories_menu = Category.objects.all()
     return render(request, 'pages/contact.html', {'categories_menu': categories_menu,})
 
+
