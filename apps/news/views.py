@@ -18,7 +18,8 @@ def search_results(request):
         if form.is_valid():
             query = form.cleaned_data['query']
             news = Article.objects.filter(
-                Q(title__icontains=query)  |
+                Q(title__icontains=query) |
+                Q(content__icontains=query) |
                 Q(category__name__icontains=query)
             )
             categories_r = Category.objects.filter(
@@ -80,7 +81,7 @@ def news_detail(request, slug):
         'categories_menu': categories_menu,
         'news': news,
     }
-    return render(request, 'details/news-detail.html', context)
+    return render(request, 'details/news_detail.html', context)
 
 
 def news_category(request, slug):
