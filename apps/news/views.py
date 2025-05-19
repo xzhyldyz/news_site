@@ -1,12 +1,10 @@
+import requests
+from datetime import datetime
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from apps.news.forms import SearchForm
-from .models import Article, Category
+from .models import Article, Category, SocialLink
 from apps.weather.views import get_weather
-from datetime import datetime
-from django.utils import timezone
-
-
 
 def search_results(request):
     categories_menu = Category.objects.all()
@@ -35,21 +33,38 @@ def search_results(request):
     }
     return render(request, 'pages/search_results.html', context)
 
+def get_city_time():
+    try:
+        response = requests.get('https://timeapi.io/api/Time/current/zone?timeZone=Asia/Bishkek')
+        data = response.json()
+        datetime_str = data.get('dateTime')  # формат: '2025-05-18T18:30:15'
+
+        if datetime_str:
+            dt = datetime.fromisoformat(datetime_str)
+            return dt.strftime('%d.%m.%Y %H:%M')  # формат: 18.05.2025 18:30
+    except Exception as e:
+        print(f"Ошибка при получении времени: {e}")
+        return "❗ Время недоступно"
+
+
  
-def homepage(request):
+def homepage(request):  
     articles = Article.objects.all()
     sliders = Article.objects.all()[:3]
     categories_menu = Category.objects.all()
     weather_data = get_weather()
-    current_time = datetime.now()
+    city_time = get_city_time()
+    social_links = SocialLink.objects.first()
     context = {                       
-        'articles': articles,
+        'articles': articles,   
         'sliders': sliders,
         'categories_menu': categories_menu,
         'weather': weather_data,
-        'current_time': current_time,
+        'city_time': city_time,
+        'social_links': social_links,
         }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', context)   # Передача данных из админки в шаблон
+
 
 
 def news_detail(request, slug):

@@ -49,16 +49,6 @@ class Article(models.Model):
         verbose_name_plural = "Новости - Статьи"
 
 
-class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-
-    class Meta:
-        verbose_name = "тег"
-        verbose_name_plural = "Теги"
-
-    def __str__(self):
-        return self.name
-    
 class Comment(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name='comments'
@@ -73,4 +63,16 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Автор: {self.author} к {self.article.title}"
+    
+
+class SocialLink(models.Model):
+    facebook = models.CharField(max_length=255, blank=True, null=True)
+    twitter = models.CharField(max_length=255, blank=True, null=True)
+    rss = models.CharField(max_length=255, blank=True, null=True)
+    google = models.CharField(max_length=255, blank=True, null=True)
+    linkedin = models.CharField(max_length=255, blank=True, null=True)
+    pinterest = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Соцсети"
     

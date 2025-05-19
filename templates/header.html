@@ -37,12 +37,15 @@
 										<span class="cel-temperature">{{ weather.temp }}°C</span>
 									</li>
 									{% endif %}
-									{% if weather %}
-									<li><span class="time-now">{{ current_time|date:"d.m.Y H:i" }}</span></li>
+
+
+									{% if city_time %}
+										<li><span class="time-now">🕒 {{ city_time }}</span></li>
 									{% endif %}
+
+
 									<li><a href="home5.html#">Log In</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="home5.html#">Purchase Theme</a></li>
+									<li><a href="{% url "contactPages" %}">Contact</a></li>
 
 									
 									<li class="dropdown default-dropdown">
@@ -69,12 +72,24 @@
 							</div>	
 							<div class="col-md-3">
 								<ul class="social-icons">
-									<li><a class="facebook" href="home5.html#"><i class="fa fa-facebook"></i></a></li>
-									<li><a class="twitter" href="home5.html#"><i class="fa fa-twitter"></i></a></li>
-									<li><a class="rss" href="home5.html#"><i class="fa fa-rss"></i></a></li>
-									<li><a class="google" href="home5.html#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a class="linkedin" href="home5.html#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a class="pinterest" href="home5.html#"><i class="fa fa-pinterest"></i></a></li>
+									{% if social_links.facebook %}
+										<li><a class="facebook" href="{{ social_links.facebook }}"><i class="fa fa-facebook"></i></a></li>
+									{% endif %}
+									{% if social_links.twitter %}
+										<li><a class="twitter" href="{{ social_links.twitter }}"><i class="fa fa-twitter"></i></a></li>
+									{% endif %}
+									{% if social_links.rss %}
+										<li><a class="rss" href="{{ social_links.rss }}"><i class="fa fa-rss"></i></a></li>
+									{% endif %}
+									{% if social_links.google %}
+										<li><a class="google" href="{{ social_links.google }}"><i class="fa fa-google-plus"></i></a></li>
+									{% endif %}
+									{% if social_links.linkedin %}
+										<li><a class="linkedin" href="{{ social_links.linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+									{% endif %}
+									{% if social_links.pinterest %}
+										<li><a class="pinterest" href="{{ social_links.pinterest }}"><i class="fa fa-pinterest"></i></a></li>
+									{% endif %}
 								</ul>
 							</div>	
 						</div>

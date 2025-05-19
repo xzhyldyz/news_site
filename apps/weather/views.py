@@ -19,4 +19,7 @@ def get_weather():
         }
     except:
         return None
+    
+
+    
 
