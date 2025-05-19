@@ -23,6 +23,7 @@ class Category(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
     content = models.TextField("Текст")
+    is_breaking = models.BooleanField(default=False)
     published_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, 

@@ -65,6 +65,12 @@ def homepage(request):
         }
     return render(request, 'index.html', context)   # Передача данных из админки в шаблон
 
+def breaking_news(request):
+    breaking_articles = Article.objects.filter(is_breaking=True)
+    return render(request, 'pages/breaking_news.html',{
+        'breaking_articles': breaking_articles
+    })
+
 
 
 def news_detail(request, slug):

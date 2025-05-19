@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+    <h1>Экстренные новости</h1>
+    {% for article in breaking_articles %}
+      <div>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.content|truncatewords:30 }}</p>
+        <a href="{{ article.get_absolute_url }}">Читать далее</a>
+      </div>
+    {% empty %}
+      <p>Экстренных новостей нет.</p>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

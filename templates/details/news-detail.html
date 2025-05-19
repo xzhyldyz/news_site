@@ -5,14 +5,19 @@
 <section class="ticker-news">
 
 	<div class="container">
+
 		<div class="ticker-news-box">
-			<span class="breaking-news">Экстренные новости</span>
+			<span class="breaking-news">
+				<a href="{% url 'breaking_news' %}"> Экстренные новости </a>
+			</span>
 			<span class="new-news">Новый</span>
 			<ul id="js-news">
-				<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="{% url "home" %}">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a> Donec odio. Quisque volutpat mattis eros... </li>
-				<li class="news-item"><span class="time-news">12:40 pm</span>  <a href="single-post6.html#">Dëshmitarja Abrashi: E kam parë Oliverin në turmë,</a> ndërsa neve na shpëtoi “çika Mille” </li>
-				<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="single-post6.html#">Franca do të bashkëpunojë me Kosovën në fushën e shëndetësisë. </a></li>
-				<li class="news-item"><span class="time-news">01:00 am</span>  <a href="single-post6.html#">DioGuardi, kështu e mbrojti Kosovën në Washington, </a> para serbit Vejvoda </li>
+				{% for article in breaking_articles %}
+				<li class="news-item">
+					<span class="time-news">{{ article.created_at|time:"H:i" }}</span>
+					<a href="{% url 'news_detail' article.slug %}">{{ article.title|truncatewords:10 }}</a>
+				</li>
+				{% endfor %}
 			</ul>
 		</div>
 	</div>
