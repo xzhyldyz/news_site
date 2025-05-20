@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="{% url "home" %}">Главная</a></li>
+            <li class="active"> Авторизация</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container mb-5 mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="login">Логин</label>
+            <input type="text" name="login" id="login" class="form-control" placeholder="Ведите логин:">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Ведите пароль:">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+        {% if error %}
+          <p>{{error}}</p>
+        {% endif %}
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock content %}

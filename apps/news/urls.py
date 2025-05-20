@@ -9,4 +9,4 @@ urlpatterns = [
     path('category/<slug:slug>/', views.news_category, name='news_category'),
     path('search/', views.search_results, name='search'),
     path('contact/', views.contact, name="contactPages"),
-]   
+]

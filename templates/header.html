@@ -43,9 +43,29 @@
 										<li><span class="time-now">🕒 {{ city_time }}</span></li>
 									{% endif %}
 
-
-									<li><a href="home5.html#">Log In</a></li>
-									<li><a href="{% url "contactPages" %}">Contact</a></li>
+                                    {% comment %} Account {% endcomment %}
+									<li class="header-account dropdown default-dropdown">
+										<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+											<div class="header-btns-icon">
+												<i class="fa fa-user-o"></i>
+											</div>
+                                            <strong class="text-uppercase">
+												{% if request.user.is_authenticated %}
+											    {{request.user.username}}
+												{% else %}
+												Мой аккаунт
+												{% endif %}
+												<i class="fa fa-caret-down"></i>
+											</strong>
+										</div>
+										{% if request.user.is_authenticated %}
+										<a href="{% url "logout"%}" class="text-uppercase">Выход</a>
+										{% else %}
+										<a href="{% url "login"%}" class="text-uppercase">Вход</a>
+										<a href="{% url "register" %}" class="text-uppercase"> Регистрация</a>
+										{% endif %}
+									</li>
+										<li><a href="{% url "contactPages" %}">Contact</a></li>
 
 									
 									<li class="dropdown default-dropdown">
